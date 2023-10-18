@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cibertec.edu.models.Student;
@@ -35,4 +36,13 @@ public class IndexController {
 		return estudiantes;
 	}
 	
+	@GetMapping({"/estudiante/{idEstudiante}"})
+	public String index(Model model, @PathVariable(name = "idEstudiante") Long idEstudiante) {
+		model.addAttribute("titulo", "Estudiante N# " + idEstudiante);
+		Student estudiante = this.studentService.getOneStudent(idEstudiante);
+		if(estudiante == null)
+			estudiante = new Student();
+		model.addAttribute("estudiante", estudiante);
+		return "estudiante";
+	}	
 }

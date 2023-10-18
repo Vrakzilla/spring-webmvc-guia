@@ -1,6 +1,7 @@
 package com.cibertec.edu.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,15 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> getAllStudents() {
 		// TODO Auto-generated method stub
 		return this.studentRepository.findAll();
+	}
+
+	@Override
+	public Student getOneStudent(Long id) {
+		// TODO Auto-generated method stub
+		Optional<Student> estudiante = this.studentRepository.findById(id);
+		if(estudiante.isPresent())
+			return estudiante.get();
+		return null;
 	}
 
 }

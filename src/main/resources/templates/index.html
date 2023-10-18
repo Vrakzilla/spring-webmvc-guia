@@ -26,6 +26,7 @@
 						<td th:text="${estudiante.dni}"></td>
 						<td th:text="${estudiante.codigo}"></td>
 						<td th:text="${estudiante.anioIngreso}"></td>
+						<td><a th:href="@{home/estudiante/} + ${estudiante.id}"><span>Ver Estudiante</span></a></td>
 					</tr>
 				</tbody>
 			</table>

@@ -1,0 +1,29 @@
+<DOCTYPE html>
+	<html xmlns:th="http://thymeleaf.org">
+		<head>
+			<meta charset="ISO-8859-1">
+			<title th:text="${titulo}"></title>
+		</head>
+		<body>
+			<div th:if="${estudiante.nombre != null}">
+				<label for="estudiante_nombre">Estudiante</label>
+				<p id="estudiante_nombre" th:text="${estudiante.nombre}"></p>
+				<br>
+				
+				<label for="estudiante_dni">DNI</label>
+				<p id="estudiante_dni" th:text="${estudiante.dni}"></p>
+				
+				<label for="estudiante_codigo">Codigo</label>
+				<p id="estudiante_codigo" th:text="${estudiante.codigo}"></p>
+				
+				<label for="estudiante_anio_ingreso">Año de ingreso</label>
+				<p id="estudiante_anio_ingreso" th:text="${estudiante.anioIngreso}"></p>
+				
+				<label for="estudiante_estado">Estado</label>
+				<p id="estudiante_estado" th:text="${estudiante.estado}"></p>
+			</div>
+			<div th:unless="${estudiante.nombre != null}">No se encontro informacion del usuario</div>
+			
+			<button id="btn-back" style="color: green;" onclick="history.back()">Volver</button>
+		</body>
+	</html>
